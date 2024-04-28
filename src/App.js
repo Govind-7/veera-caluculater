@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Simple Intrest Calculater</h1>
+      <label for="money">Enter the principle Amount</label>
+      <br />
+      <input id="money" type="number" />
+      <br />
+      <label for="date1">Select starting date</label>
+      <br />
+      <input id="date1" type="date" />
+      <br />
+      <label for="date2">Select The Eniding date</label>
+      <br />
+      <input id="date2" type="date" />
+      <br />
+      <button>claculte Intrest</button>
     </div>
   );
 }
