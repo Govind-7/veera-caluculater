@@ -1,6 +1,19 @@
-.search-bar {
-  width: 80%;
-  height: 50px;
+@media (orientation: landscape) {
+  .search-bar {
+    width: 80%;
+    height: 50px;
+    padding-left: 10px;
+  }
+}
+@media (orientation: portrait) {
+  .search-bar {
+    width: 65%;
+    height: 50px;
+    padding-left: 10px;
+  }
+  .heading {
+    font-size: 25px;
+  }
 }
 
 .search-but {
@@ -10,5 +23,8 @@
   border-radius: 10px;
   margin-left: 10px;
   color: white;
-  width: 100px;
+  width: 90px;
+}
+.search-bg {
+  margin: 20px;
 }

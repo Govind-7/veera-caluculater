@@ -1,4 +1,5 @@
 const express = require("express");
+
 const cors = require("cors");
 const path = require("path");
 const { open } = require("sqlite");
@@ -42,7 +43,52 @@ app.post("/api/calculator", (req, res) => {
   res.send({ totalIntrest: finalIntrest, totalDays: days });
 });
 
-app.get("/api/data", (req, res) => {
-  console.log(req.body);
-  res.send({ data: "its working" });
+app.get("/api/search/:searchVal", async (req, res) => {
+  //   console.log(req.params);
+  const { searchVal } = req.params;
+  const query1 = `select * from nextwave where name LIKE ? OR country LIKE ? OR mobile LIKE ? OR email LIKE ?`;
+  const details1 = await db.all(query1, [
+    `%${searchVal}%`,
+    `%${searchVal}%`,
+    `%${searchVal}%`,
+    `%${searchVal}%`,
+  ]);
+
+  const query2 = `select * from rawdata where name LIKE ? OR city LIKE ? OR customerId LIKE ? `;
+  const details2 = await db.all(query2, [
+    `%${searchVal}%`,
+    `%${searchVal}%`,
+    `%${searchVal}%`,
+  ]);
+
+  const query3 = `select * from rawdata1 where name LIKE ? OR city LIKE ? OR phone LIKE ? OR email LIKE ? OR occupation LIKE ?`;
+  const details3 = await db.all(query3, [
+    `%${searchVal}%`,
+    `%${searchVal}%`,
+    `%${searchVal}%`,
+    `%${searchVal}%`,
+    `%${searchVal}%`,
+  ]);
+  //   console.log(details1);
+
+  const combinedDtls = [...details1, ...details2, ...details3];
+
+  res.send({ data: combinedDtls });
+});
+
+app.post("/api/speech", async (req, res) => {
+  const arr = req.body;
+
+  arr.map(async (item) => {
+    const query = `INSERT INTO speech (content) VALUES(?)`;
+    await db.run(query, [item]);
+  });
+
+  res.send({ msg: "succes" });
+});
+
+app.get("/api/speech/recorded", async (req, res) => {
+  const query = `SELECT * FROM speech`;
+  const data = await db.all(query);
+  res.send(data);
 });
