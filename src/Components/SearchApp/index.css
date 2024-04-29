@@ -1,0 +1,14 @@
+.search-bar {
+  width: 80%;
+  height: 50px;
+}
+
+.search-but {
+  height: 50px;
+  background-color: lightsteelblue;
+  border-style: none;
+  border-radius: 10px;
+  margin-left: 10px;
+  color: white;
+  width: 100px;
+}

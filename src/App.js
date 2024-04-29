@@ -1,7 +1,8 @@
 import Calculater from "./Components/Calculater";
+import SearchApp from "./Components/SearchApp";
 
 function App() {
-  return <Calculater />;
+  return <SearchApp />;
 }
 
 export default App;
