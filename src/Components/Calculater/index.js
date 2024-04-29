@@ -31,7 +31,7 @@ const Calculater = () => {
     };
 
     const response = await fetch(
-      "http://localhost:5000/api/calculator",
+      "https://veera-caluculater.onrender.com/api/calculator",
       options
     );
     const data = await response.json();

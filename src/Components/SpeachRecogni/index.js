@@ -18,7 +18,7 @@ const SpeachRecogni = () => {
   };
 
   const prevFunc = async () => {
-    const url1 = "http://localhost:5000/api/speech/recorded";
+    const url1 = "https://veera-caluculater.onrender.com/api/speech/recorded";
     const respo1 = await fetch(url1);
     const dt1 = await respo1.json();
     // console.log(dt1);
@@ -29,7 +29,7 @@ const SpeachRecogni = () => {
     recognition.stop();
     setErr("listenig stoped.....");
     // const url = "http://localhost:5000/api/speech";
-    const url = "http://localhost:5000/api/speech";
+    const url = "https://veera-caluculater.onrender.com/api/speech";
 
     const options = {
       method: "POST",

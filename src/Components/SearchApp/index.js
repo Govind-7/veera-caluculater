@@ -10,7 +10,7 @@ const SearchApp = () => {
   const sbmitFunction = async (e) => {
     e.preventDefault();
     const value = document.getElementById("search").value;
-    const url = `http://localhost:5000/api/search/${value}`;
+    const url = `https://veera-caluculater.onrender.com/api/search/${value}`;
 
     const respo = await fetch(url);
     const data = await respo.json();
